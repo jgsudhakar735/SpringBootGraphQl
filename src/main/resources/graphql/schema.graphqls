@@ -1,0 +1,12 @@
+type GraphQLEntity {
+    id: Int,
+    firstName: String,
+    lastName: String
+}
+
+type Query{
+    getAllEmp: [GraphQLEntity]
+}
+type Mutation{
+    fetchEmployee(id:Int): GraphQLEntity
+}
