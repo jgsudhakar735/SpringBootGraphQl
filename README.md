@@ -1,0 +1,2 @@
+# SpringBootGraphQl
+Springboot with SpringBootGraphQl
