@@ -1,7 +1,7 @@
 # defining what are all we are using from Schema
 schema {
-    query: Query,
-    mutation: Mutation
+    query: Query
+#    mutation: Mutation
 }
 
 # Type of Class we are going to return and it's properties with data types
@@ -22,10 +22,11 @@ type Student {
 type Query{
     getAllEmp: [GraphQLEntity]
     fetchAllStudents: [Student]
+    fetchByRollNo(rollNo:String!): Student
+    fetchEmployee(id:Int!): GraphQLEntity
+    fetchAllStudentsByName(name:String!):[Student]
 }
 # Type of schema we are using and method name of the java code and return type and input params
-type Mutation{
-    fetchEmployee(id:Int): GraphQLEntity
-    fetchByRollNo(rollNo:String): Student
-    fetchAllStudentsByName(name:String):[Student]
-}
+#type Mutation{
+#
+#}

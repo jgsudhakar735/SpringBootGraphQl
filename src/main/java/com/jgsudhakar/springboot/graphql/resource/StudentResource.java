@@ -28,13 +28,18 @@ public class StudentResource {
         return studentService.fetchAll();
     }
 
-    @MutationMapping
+    @QueryMapping
     public Student fetchByRollNo(@Argument String rollNo) {
         return studentService.fetchByRollNo(rollNo);
     }
 
-    @MutationMapping
+    @QueryMapping
     public List<Student> fetchAllStudentsByName(@Argument String name) {
         return studentService.fetchStuListByName(name);
+    }
+
+    @MutationMapping
+    public Student saveStudent(Argument Student student) {
+
     }
 }
