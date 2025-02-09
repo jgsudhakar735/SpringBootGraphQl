@@ -15,4 +15,5 @@ public interface StudentService {
     public List<Student> fetchAll();
     public Student fetchByRollNo(String rollNo);
     public List<Student> fetchStuListByName(String name);
+    public Student saveStudent(Student student);
 }

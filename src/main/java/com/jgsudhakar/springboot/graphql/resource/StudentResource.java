@@ -6,9 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
+import org.springframework.graphql.data.method.annotation.SubscriptionMapping;
 import org.springframework.stereotype.Controller;
+import reactor.core.publisher.Flux;
 
+import java.time.Duration;
 import java.util.List;
+import java.util.Random;
 
 /*************************************
  * This Class is used to 
@@ -39,7 +43,13 @@ public class StudentResource {
     }
 
     @MutationMapping
-    public Student saveStudent(Argument Student student) {
+    public Student saveStudent(@Argument Student student) {
+        return studentService.saveStudent(student);
+    }
 
+    @SubscriptionMapping("newMessage")
+    public Flux<String> newMessage() {
+        return Flux.interval(Duration.ofSeconds(2)).
+                map(message -> String.valueOf(new Random().nextLong()));
     }
 }

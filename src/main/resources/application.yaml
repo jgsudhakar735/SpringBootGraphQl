@@ -6,9 +6,14 @@ spring:
     name: SpringBootGraphQl
       #  Graph QL
   graphql:
+    websocket:
+      path: /graphql
     graphiql:
       enabled: true
       path: /graphiql
+    schema:
+      printer:
+        enabled: true
   main:
     banner-mode: console
     allow-bean-definition-overriding: true

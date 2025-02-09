@@ -1,7 +1,8 @@
 # defining what are all we are using from Schema
 schema {
     query: Query
-#    mutation: Mutation
+    mutation: Mutation
+    subscription: Subscription
 }
 
 # Type of Class we are going to return and it's properties with data types
@@ -18,6 +19,12 @@ type Student {
     standard: String
 }
 
+input StudentInput {
+    name: String,
+    rollNo: String,
+    standard: String
+}
+
 # Type of schema we are using and method name of the java code and return type [] denotes array
 type Query{
     getAllEmp: [GraphQLEntity]
@@ -27,6 +34,11 @@ type Query{
     fetchAllStudentsByName(name:String!):[Student]
 }
 # Type of schema we are using and method name of the java code and return type and input params
-#type Mutation{
-#
-#}
+type Mutation{
+    saveStudent(student: StudentInput): Student
+}
+
+type Subscription {
+    newMessage: String
+}
+
